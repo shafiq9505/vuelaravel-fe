@@ -113,7 +113,7 @@ export default {
             router.push({ name: 'main-layout' });
           }
         } catch (error) {
-          console.error('Failed register:', safeStringify(error));
+          console.error('Failed register:', error);
         }
       },
 

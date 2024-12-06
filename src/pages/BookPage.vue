@@ -35,15 +35,9 @@ import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { useApi } from 'src/api/useApi';
 
-interface IBook {
-  id: number;
-  name: string;
-  author: string;
-  publish_date: string;
-}
 
 const router = useRouter();
-const books = ref<IBook[]>([]);
+const books = ref([]);
 const { getApi } = useApi();
 function goBack() {
   router.back();

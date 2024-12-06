@@ -90,7 +90,7 @@ const user = ref({
   avatar: _.get(
     localStorageUser,
     'profilePicture',
-    'https://via.placeholder.com/100'
+    "~assets/user-profile-icon.svg"
   ),
   joinedDate: _.get(localStorageUser, 'joinedDate', 'January 15, 2021'),
   bio: 'A passionate developer who loves coding and coffee.',
@@ -200,18 +200,14 @@ const rows = [
 ];
 
 // Reference to the file uploader
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const fileUploader = ref<any>(null);
+const fileUploader = ref(null);
 
 // Handle file upload
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const onFileAdded = (files: readonly any[]) => {
+const onFileAdded = (files) => {
   // Accept an array of files
   if (files.length) {
     const reader = new FileReader();
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    reader.onload = (event: any) => {
+    reader.onload = (event) => {
       user.value.avatar = event.target.result; // Set the base64 image as the avatar
       $q.localStorage.set('user', JSON.stringify(user.value)); // Save the updated user to localStorage
     };
@@ -220,8 +216,7 @@ const onFileAdded = (files: readonly any[]) => {
   }
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const viewPurchase = (row: any) => {
+const viewPurchase = (row) => {
   console.log('Viewing purchase:', row);
 };
 </script>
